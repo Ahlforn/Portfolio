@@ -1,5 +1,5 @@
 # PriceCalculator
-## Datamatikker hovedopgave projekt - Teknologisk Institut
+## Datamatiker hovedopgave projekt - Teknologisk Institut
 Projekt filer og sensitive data er fjernet fra projektet.
 
 Implementeret ved brug af ASP.Net Core Razor Pages, C#, TypeScript, SCSS og MS SQL.

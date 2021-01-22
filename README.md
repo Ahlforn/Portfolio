@@ -1,2 +1,3 @@
-# Portfolio
-## Anders Hofmeister Brønden
+# Portfolio - Anders Hofmeister Brønden
+
+Her er en lille samling eksempler på kode fra min studietid.
