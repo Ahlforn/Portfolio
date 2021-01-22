@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div(class="container-fluid")
+        div(class="border form")
+            form
+                if joke
+                    input(type="hidden", id="id" value=joke._id)
+                    - jokeSetup = joke.setup
+                    - jokePunchline = joke.punchline
+                div(class="form-group")
+                    label(for="setup") Setup
+                    textarea(class="form-control", id="setup", placeholder="Setup") #{jokeSetup}
+                div(class="form-group")
+                    label(for="punchline") Punchline
+                    textarea(class="form-control", id="punchline", placeholder="Punchline") #{jokePunchline}
+                div(class="form-group")
+                    if joke
+                        button(type="submit", id="save", class="btn btn-primary") Save
+                        button(type="button", id="delete", class="btn btn-danger") Delete
+                    else
+                        button(type="submit", id="create", class="btn btn-primary") Create
+
+    script(src='/javascripts/form.js')

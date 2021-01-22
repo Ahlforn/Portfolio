@@ -1,0 +1,7 @@
+.service(id=service._id, class="border")
+    h2= service.name
+    if service._id === "_"
+        a(class="btn btn-primary", href="./add", role="button") Add Joke
+    each joke in service.jokes
+        if joke
+            include joke.pug

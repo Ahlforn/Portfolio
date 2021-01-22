@@ -1,0 +1,10 @@
+div(class="card")
+    if joke.setup
+        -joke.setup = joke.setup.replace(/\n/g, '<br>');
+    if joke.punchline
+        -joke.punchline = joke.punchline.replace(/\n?\r\n/g, '<br>' );
+    p(class="card-header setup")!= joke.setup
+    p(class="card-body punchline")!= joke.punchline
+
+    if service._id === '_'
+        a(class="btn btn-secondary", href="./edit/" + joke._id, role="button") Edit

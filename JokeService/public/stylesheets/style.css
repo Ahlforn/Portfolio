@@ -1,0 +1,27 @@
+.container-fluid {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.service {
+    display: none;
+    padding: 10px;
+}
+
+.service .card {
+    margin: 10px 0 10px 0;
+}
+
+.shown {
+    display: block;
+}
+
+.form {
+    padding: 10px;
+}
+
+.form-group .btn-danger {
+    margin-left: 10px;
+}
+
+

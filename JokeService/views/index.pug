@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    div(class="container-fluid")
+        div(class="jumbotron")
+            h1(class="display-4") Welcome to #{title}
+            p(class="lead") A joke service for the strong, vodka-fueled humor of mother Russia. We also spy on our neighboring joke services.
+            hr(class="my-4")
+            div(class="form-group")
+                label(for="serviceSelect") Choose a joke service:
+                select(id="serviceSelect", class="form-control")
+                    each service in services
+                        option(value= service._id) #{service.name}
+
+        each service in services
+            if service
+                include service.pug
+
+    script(src='/javascripts/app.js')
