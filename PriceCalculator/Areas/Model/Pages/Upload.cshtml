@@ -1,0 +1,27 @@
+﻿@page "{orderID?}"
+@model UploadModel
+@using PriceCalculator.Models;
+@{
+}
+<div class="row content">
+    <div class="col-md-12">
+        <partial name="_StatusMessage", model="Model.StatusMessage" />
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" id="id" value="@Model.id" />
+            <div class="uploadForm">
+                <div class="fileControl">
+                    <h5>Drag files here or click to browse local files.</h5>
+                </div>
+                <div class="hover hidden">
+                    <h5>Drop files here</h5>
+                </div>
+            </div>
+            @Html.AntiForgeryToken()
+            <input type="file" class="fileInput" style="height: auto" multiple />
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/upload.js"></script>
+}

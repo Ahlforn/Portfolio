@@ -1,0 +1,54 @@
+﻿@page "{handler?}"
+@model IndexModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<SiteUser> UserManager
+@{
+    ViewData["Title"] = "Order Index";
+    
+}
+
+<div class="row content">
+    <div class="col-md-12">
+        <h2>Quotation Index</h2>
+
+        <p>
+            <a asp-page="Create" asp-area="Quotations" class="btn btn-primary">Create new quotation</a>
+            @if (Model.ShowAll)
+            {
+                <a asp-page-handler="" class="btn btn-secondary float-right">Show only own</a>
+            }
+            else
+            {
+                <a asp-page-handler="all" class="btn btn-secondary float-right">Show all</a>
+            }
+        </p>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotations[0].ID)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotations[0].Title)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotations[0].User)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotations[0].Created)</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var quotation in Model.Quotations)
+                {
+                    string username = quotation.User == null ? "N/A" : quotation.User.UserName;
+                <tr>
+                    <th scope="row">@Html.DisplayFor(item => quotation.ID)</th>
+                    <td>@Html.DisplayFor(item => quotation.Title)</td>
+                    <td>@username</td>
+                    <td>@quotation.Created.Date.ToShortDateString()</td>
+                <td>
+                    <a asp-page="./Edit" asp-area="Quotations" asp-route-id="@quotation.ID">Edit</a> |
+                    <!--<a asp-page="./Details" asp-area="Quotations" asp-route-id="@quotation.ID">Details</a> |-->
+                    <a asp-page="./Delete" asp-area="Quotations" asp-route-id="@quotation.ID">Delete</a>
+                </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

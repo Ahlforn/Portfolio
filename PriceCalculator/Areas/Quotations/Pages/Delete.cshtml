@@ -1,0 +1,43 @@
+﻿@page "{id}"
+@model DeleteModel
+@{
+    ViewData["Title"] = "Delete Order";
+}
+
+<div class="row content">
+    <div class="col-md-12">
+        <h2>Delete</h2>
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <h4>Order</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quotation.Title)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Quotation.Title)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quotation.Customer)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Quotation.Customer)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quotation.DeliveryAddress)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Quotation.DeliveryAddress)
+                </dd>
+            </dl>
+
+            <form method="post">
+                <input type="hidden" asp-for="Quotation.ID" />
+                <input type="submit" value="Delete" class="btn btn-primary" /> |
+                <a asp-page="./Index">Back to List</a>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@page
+@model PriceCalculator.Areas.Services.Pages.Manage.PostProcesses.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Services/Pages/Manage/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post Process</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostProcess.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostProcess.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostProcess.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostProcess.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostProcess.ExcelDefinedName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostProcess.ExcelDefinedName)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.PostProcess.ExcelDefinedPriceName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.PostProcess.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

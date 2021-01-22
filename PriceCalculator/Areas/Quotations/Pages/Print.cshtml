@@ -1,0 +1,113 @@
+﻿@page "{id}"
+@model PriceCalculator.Areas.Quotations.Pages.PrintQuotationModel
+@{
+}
+<div class="row content">
+    <div class="col-2">
+        Dato:<br />
+        Customer:<br />
+        Delivery Address:<br />
+        Initials:
+    </div>
+    <div class="col-10">
+        @Model.quotation.Created.Date.ToShortDateString()<br />
+        @Model.quotation.Customer<br />
+        @Model.quotation.DeliveryAddress<br />
+        @Model.quotation.User.Email
+    </div>
+</div>
+<div class="row content">
+    <div class="col-12">
+        @{
+            double QuotationTotalPrice = 0.0;
+            foreach (var stl in Model.models)
+            {
+                if (stl.Material != null)
+                {
+                    string businessArea = stl.Industry != null ? stl.Industry.Name : "";
+                    string X = Math.Round(stl.X, 2) + "mm";
+                    string Y = Math.Round(stl.Y, 2) + "mm";
+                    string Z = Math.Round(stl.Z, 2) + "mm";
+                    string Vol = Math.Round(stl.Volume, 2) + "mm³";
+                    string PricePerPart = Math.Round(stl.PricePerPart, 2) + " DKK";
+                    string PriceTotal = Math.Round(stl.PriceTotal, 2) + " DKK";
+                    var PP = Model.postProcesses[stl.ID];
+                    QuotationTotalPrice += stl.PriceTotal;
+
+                    <hr />
+                    <div class="row nobreak">
+                        <div class="col-6 print-friendly-model">
+                            <div class="row">
+                                <div class="col-4">Filename:</div>
+                                <div class="col-8">@stl.Name</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Business Area:</div>
+                                <div class="col-8">@businessArea</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Dimensions:</div>
+                                <div class="col-8">
+                                    X: @X<br />
+                                    Y: @Y<br />
+                                    Z: @Z<br />
+                                    Volume: @Vol
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Material:</div>
+                                <div class="col-8">@stl.Material.Name</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Layer Thickness:</div>
+                                <div class="col-8">@stl.LayerThickness.Thickness@stl.LayerThickness.Unit</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Printer:</div>
+                                <div class="col-8">@stl.Printer.Name</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Post-processes:</div>
+                                <div class="col-8">
+                                    <ul class="print-postprocess-list">
+                                        @foreach (PrintModelPostProcess pmpp in PP)
+                    {
+                                            <li>@pmpp.PostProcess.Name</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Amount:</div>
+                                <div class="col-8">@stl.Amount</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Price per part:</div>
+                                <div class="col-8">@PricePerPart</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">Price total:</div>
+                                <div class="col-8">@PriceTotal</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            @if (stl.Snapshot != null && stl.Snapshot.Length > 0)
+                    {
+                                <img src="@stl.Snapshot" class="border" />
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        }
+        <hr />
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4">Total Price:</div>
+                    <div class="col-8">@Math.Round(QuotationTotalPrice, 2) DKK</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

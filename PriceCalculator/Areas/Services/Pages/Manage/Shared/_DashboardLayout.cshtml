@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+}
+@section Styles {
+    <link href="@Url.Content("~/css/dashboard.css")" rel="stylesheet" type="text/css" />
+    @RenderSection("Styles", false)
+}
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky dashboard">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a asp-area="Services" asp-page="/Manage/Index">
+                            <img src="~/images/site_management/dashboard_home.svg" title="Dashboard Home" /> Dashboard Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Services" asp-page="/Manage/Printers/Index">
+                            <img src="~/images/site_management/layer_thickness.svg" title="Post Processes" /> Printers
+                        </a>
+                    <li class="nav-item">
+                        <a asp-area="Services" asp-page="/Manage/Materials/Index">
+                            <img src="~/images/site_management/material.svg" title="Materials" /> Materials
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Services" asp-page="/Manage/LayerThicknesses/Index">
+                            <img src="~/images/site_management/layer_thickness.svg" title="Layer Thicknesses" /> Layer Thicknesses
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Services" asp-page="/Manage/PostProcesses/Index">
+                            <img src="~/images/site_management/layer_thickness.svg" title="Post Processes" /> Post Processes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Services" asp-page="/Manage/Industries/Index">
+                            <img src="~/images/site_management/layer_thickness.svg" title="Industries" /> Industries
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Services" asp-page="/Manage/Roles/Index">
+                            <img src="~/images/site_management/layer_thickness.svg" title="Post Processes" /> Roles
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-area="Services" asp-page="/Manage/PriceCalcEngines/Index">
+                            <img src="~/images/site_management/layer_thickness.svg" title="Price Calculator Engines" /> Price Calculation Engines
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            @RenderBody()
+        </main>
+    </div>
+</div>
+@section Scripts {
+    @RenderSection("Scripts", false)
+}

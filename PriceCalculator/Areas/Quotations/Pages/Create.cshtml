@@ -1,0 +1,44 @@
+﻿@page
+@model CreateModel
+@{
+}
+<div class="row content">
+    <div class="col-md-12">
+        <h2>Create</h2>
+
+        <h4>Quoteation</h4>
+        <hr />
+    </div>
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Quotation.Title" class="control-label"></label>
+                <input asp-for="Quotation.Title" class="form-control" />
+                <span asp-validation-for="Quotation.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quotation.Customer" class="control-label"></label>
+                <input asp-for="Quotation.Customer" class="form-control" />
+                <span asp-validation-for="Quotation.Customer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quotation.DeliveryAddress" class="control-label"></label>
+                <input asp-for="Quotation.DeliveryAddress" class="form-control" />
+                <span asp-validation-for="Quotation.DeliveryAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div class="col-md-12">
+        <div>
+            <a asp-page="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

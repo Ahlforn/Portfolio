@@ -1,0 +1,33 @@
+﻿@page "{id}"
+@model OrderModel
+@{
+    ViewData["Title"] = "Quotation List";
+}
+<div class="row content">
+    <div class="col-md-4">
+        <h2>Uploaded Models</h2>
+
+        <p>
+            <a asp-area="Model" asp-page="Upload" asp-route-orderID="@Model.Quotation.ID">Upload Model</a>
+        </p>
+    </div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotation.PrintModels.ElementAt(0).Name)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotation.PrintModels.ElementAt(0).UploadDate)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model.Quotation.PrintModels)
+                {
+                    <tr>
+                        <td><a asp-area="Model" asp-page="./Details" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.Name)</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.UploadDate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@page
+@model PriceCalculator.Areas.Services.Pages.Manage.Roles.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Services/Pages/Manage/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Material</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Role.Id" />
+            <div class="form-group">
+                <label asp-for="Role.Name" class="control-label"></label>
+                <input asp-for="Role.Name" class="form-control" />
+                <span asp-validation-for="Role.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,51 @@
+﻿@page
+@model PriceCalculator.Areas.Services.Pages.Manage.PostProcesses.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Services/Pages/Manage/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Post Process</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PostProcess.ID" />
+            <div class="form-group">
+                <label asp-for="PostProcess.Name" class="control-label"></label>
+                <input asp-for="PostProcess.Name" class="form-control" />
+                <span asp-validation-for="PostProcess.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostProcess.Description" class="control-label"></label>
+                <input asp-for="PostProcess.Description" class="form-control" />
+                <span asp-validation-for="PostProcess.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostProcess.ExcelDefinedName" class="control-label"></label>
+                <input asp-for="PostProcess.ExcelDefinedName" class="form-control" />
+                <span asp-validation-for="PostProcess.ExcelDefinedName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostProcess.ExcelDefinedPriceName" class="control-label"></label>
+                <input asp-for="PostProcess.ExcelDefinedPriceName" class="form-control" />
+                <span asp-validation-for="PostProcess.ExcelDefinedPriceName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

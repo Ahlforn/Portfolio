@@ -1,0 +1,28 @@
+﻿@page "{file}"
+@model PriceCalculator.Areas.Services.Pages.Manage.PriceCalcEngines.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Services/Pages/Manage/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Engine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Filename
+        </dt>
+        <dd>
+            @Model.Filename
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="submit" value="Delete" class="btn btn-primary" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

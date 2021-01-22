@@ -1,0 +1,64 @@
+﻿@page
+@model PriceCalculator.Areas.Services.Pages.Manage.Printers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Services/Pages/Manage/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>Printers</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Printer.Name" class="control-label"></label>
+                <input asp-for="Printer.Name" class="form-control" />
+                <span asp-validation-for="Printer.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Printer.W" class="control-label"></label>
+                <input asp-for="Printer.W" class="form-control" />
+                <span asp-validation-for="Printer.W" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Printer.H" class="control-label"></label>
+                <input asp-for="Printer.H" class="form-control" />
+                <span asp-validation-for="Printer.H" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Printer.D" class="control-label"></label>
+                <input asp-for="Printer.D" class="form-control" />
+                <span asp-validation-for="Printer.D" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Post-processes available for material:</label>
+                @foreach (Material m in Model.Materials)
+                {
+                    <h5>@m.Name</h5>
+                    @foreach (LayerThickness l in m.LayerThicknesses)
+                    {
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="@l.ID" id="Selected-@l.ID" name="Selected" />
+                            <label class="form-check-label" for="Selected-@l.ID">@l.Thickness @l.Unit</label>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

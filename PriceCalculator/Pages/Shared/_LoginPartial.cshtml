@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PriceCalculator.Models
+@inject SignInManager<SiteUser> SignInManager
+@inject UserManager<SiteUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Quotations" asp-page="/Index" title="Upload 3D Model">Quotations</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)</a>
+        </li>
+        @if (await UserManager.IsInRoleAsync(await UserManager.FindByIdAsync(UserManager.GetUserId(User)), "Administrator"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" asp-area="Services" asp-page="/Manage/Index" title="Manage Site">Site Management</a>
+            </li>
+        }
+    </ul>
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm" class="form-inline my-2 my-lg-0">
+        <button type="submit" class="btn btn-link">Logout</button>
+    </form>
+}
+else
+{
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a></li>
+        <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
+    </ul>
+}

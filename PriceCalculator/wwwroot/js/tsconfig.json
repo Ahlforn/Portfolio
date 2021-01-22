@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "module": "es6",
+    "target": "es5"
+  },
+  "files": [
+    "./model_details.ts",
+    "./xeoglInit.ts",
+    "./upload.ts",
+    "./quotations.ts",
+    "./manageLayerThickness.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ],
+  "compileOnSave": true
+}

@@ -1,0 +1,141 @@
+﻿@page "{id}/{handler?}/{hid?}"
+@model EditModel
+@{
+}
+<div class="row content">
+    <div class="col-md-12">
+        <h2>Edit</h2>
+
+        <h4>Quotation</h4>
+        <hr />
+    </div>
+</div>
+<div class="row content">
+    <div class="col-md-6">
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-md-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Quotation.ID" />
+                    <div class="form-group">
+                        <label asp-for="Quotation.Title" class="control-label"></label>
+                        <input asp-for="Quotation.Title" class="form-control" />
+                        <span asp-validation-for="Quotation.Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Quotation.Created" class="control-label"></label>
+                        <div class="input-group date">
+                            <input asp-for="Quotation.Created" type="text" class="form-control" />
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Quotation.Created" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Quotation.Customer" class="control-label"></label>
+                        <input asp-for="Quotation.Customer" class="form-control" />
+                        <span asp-validation-for="Quotation.Customer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Quotation.DeliveryAddress" class="control-label"></label>
+                        <input asp-for="Quotation.DeliveryAddress" class="form-control" />
+                        <span asp-validation-for="Quotation.DeliveryAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Update" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <form method="post" enctype="multipart/form-data">
+            <div class="uploadForm">
+                <div class="fileControl">
+                    <h5>Drag files here or click to browse local files.</h5>
+                    <h6>Max file size: 45 MB</h6>
+                    <h6>Supported file formats: STL</h6>
+                </div>
+                <div class="hover hidden">
+                    <h5>Drop files here</h5>
+                </div>
+            </div>
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="quotationID" value="@Model.Quotation.ID" />
+            <input type="file" class="fileInput" style="height: auto" multiple />
+        </form>
+    </div>
+</div>
+
+<div class="row content">
+    <div class="col-md-12">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotation.PrintModels.ToList()[0].Name)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotation.PrintModels.ToList()[0].UploadDate)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotation.PrintModels.ToList()[0].Material)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotation.PrintModels.ToList()[0].Amount)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotation.PrintModels.ToList()[0].PricePerPart)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotation.PrintModels.ToList()[0].PriceTotal)</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    double total = 0.0;
+                }
+                @foreach (var printModel in Model.Quotation.PrintModels)
+                {
+                    total += printModel.PriceTotal;
+                    string material = printModel.Material != null ? printModel.Material.Name : "";
+                    material += printModel.LayerThickness != null ? String.Format(" ({0} {1})", printModel.LayerThickness.Thickness, printModel.LayerThickness.Unit) : "";
+                    <tr>
+                        <td>@Html.DisplayFor(item => printModel.Name)</td>
+                        <td>@printModel.UploadDate.Date.ToShortDateString()</td>
+                        <td>@material</td>
+                        <td>@Html.DisplayFor(item => printModel.Amount)</td>
+                        <td>@Html.DisplayFor(item => printModel.PricePerPart)</td>
+                        <td>@Html.DisplayFor(item => printModel.PriceTotal)</td>
+                        <td>
+                            <a asp-page="./Details" asp-area="Model" asp-route-id="@printModel.ID">Edit</a> |
+                            <a asp-page="./Delete" asp-area="Model" asp-route-id="@printModel.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row">Total:</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <th>@total</th>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<div class="row content">
+    <div class="col-md-12">
+        <a asp-page="Print" class="btn btn-primary">Print Report</a><br />
+        <br />
+        <a asp-page="Index">Back to List</a>
+    </div>
+</div>
+
+@section Styles {
+    <link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/js/upload.js"></script>
+    <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/quotations.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

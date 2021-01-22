@@ -1,0 +1,16 @@
+﻿<form method="post" enctype="multipart/form-data">
+    <div class="uploadForm">
+        <div class="fileControl">
+            <h5>Drag files here or click to browse local files.</h5>
+        </div>
+        <div class="hover hidden">
+            <h5>Drop files here</h5>
+        </div>
+    </div>
+    @Html.AntiForgeryToken()
+    <input type="file" class="fileInput" style="height: auto" multiple />
+</form>
+
+@section Scripts {
+    <script src="~/js/upload.js"></script>
+}

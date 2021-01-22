@@ -1,0 +1,67 @@
+﻿@page "{handler?}/{id?}"
+@model PriceCalculator.Areas.Services.Pages.Manage.PriceCalcEngines.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Services/Pages/Manage/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Index</h2>
+<h4>Upload Engine</h4>
+<form method="post" enctype="multipart/form-data">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+        </div>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" asp-for="Upload" id="fileInput">
+            <label class="custom-file-label" for="inputGroupFile" id="fileInputLabel">Choose file</label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload File</button>
+</form>
+<hr />
+<h4>Engines</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Filename
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@for(int i = 0; i < Model.PriceCalcEngines.Count; i++) {
+    string engine = Model.PriceCalcEngines[i];
+        <tr>
+            <td>
+                @if(engine == Model.CurrentEngine)
+                {
+                    <b>@engine</b>
+                }
+                else
+                {
+                    @engine
+                }
+            </td>
+            <td>
+                @if (engine != Model.CurrentEngine)
+                {
+                    <a asp-page-handler="activate" asp-route-id="@i">Set active</a>@(" | ")
+                    <a asp-page="./Delete" asp-route-file="@engine">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        const input = document.getElementById("fileInput");
+        const label = document.getElementById("fileInputLabel");
+        input.addEventListener("change", () => {
+            label.innerHTML = input.value;
+        });
+    </script>
+}

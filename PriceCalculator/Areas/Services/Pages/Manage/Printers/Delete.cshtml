@@ -1,0 +1,29 @@
+﻿@page
+@model PriceCalculator.Areas.Services.Pages.Manage.Printers.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Services/Pages/Manage/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Printer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Printer.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Printer.Name)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Printer.ID" />
+        <input type="submit" value="Delete" class="btn btn-primary" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

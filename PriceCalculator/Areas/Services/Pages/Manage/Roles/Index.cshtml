@@ -1,0 +1,83 @@
+﻿@page "{handler?}/{id?}"
+@model PriceCalculator.Areas.Services.Pages.Manage.Roles.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Services/Pages/Manage/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<h4>Roles</h4>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Roles[0].Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model.Roles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => role.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@role.Id">Edit</a> |
+                    <a asp-page="./Delete" asp-route-id="@role.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h4>Users</h4>
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Users[0].UserName)
+                </th>
+                @foreach (var role in Model.Roles)
+                {
+                    <th>@role.Name</th>
+                }
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => user.UserName)
+                    </td>
+                    @foreach (var role in Model.Roles)
+                    {
+                        string check = "";
+                        foreach(string str in Model.AssignedRoles)
+                        {
+                            if(str == user.Id + ":" + role.Id)
+                            {
+                                check = "checked";
+                            }
+                        }
+                        <td>
+                            <input type="checkbox" name="AssignedRoles" value="@user.Id:@role.Id" @check/>
+                        </td>
+                    }
+                    <td>
+                        <a asp-page-handler="DeleteUser" asp-route-id="@user.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="Update Role Assignment" class="btn btn-primary" />
+</form>

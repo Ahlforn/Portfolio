@@ -1,0 +1,16 @@
+﻿@{ 
+    Layout = "_MainLayout.cshtml";
+}
+<div class="container">
+    <partial name="_Navbar" />
+    @RenderBody()
+    <footer>
+        <h6>Teknologisk Institut</h6>
+    </footer>
+</div>
+@section Styles {
+    @RenderSection("Styles", false)
+}
+@section Scripts {
+    @RenderSection("Scripts", false)
+}

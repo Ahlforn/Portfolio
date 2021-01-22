@@ -1,0 +1,28 @@
+﻿@page "{id}"
+@model DetailsModel
+@{
+}
+<div class="row content">
+    <div class="col-md-12">
+        <h2>Quotation: @Model.Quotation.Title</h2>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">@Html.DisplayFor(model => model.Quotation.PrintModels.ToList()[0].Name)</th>
+                <th scope="col">@Html.DisplayFor(model => model.Quotation.PrintModels.ToList()[0].Snapshot)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(PrintModel printModel in Model.Quotation.PrintModels)
+            {
+                <tr>
+                    <td scope="row">@printModel.ID</td>
+                    <td>@printModel.Name</td>
+                    <td><img class="img-thumbnail" src="@printModel.Snapshot" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

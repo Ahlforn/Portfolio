@@ -1,0 +1,33 @@
+﻿@page
+@model ListModel
+@{
+    ViewData["Title"] = "Print Models";
+}
+<div class="row content">
+    <div class="col-md-4">
+        <h2>Orders</h2>
+
+        <p>
+            <a asp-area="Model" asp-page="Upload">Upload Model</a>
+        </p>
+    </div>
+    <div class="col-md-8">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotations[0].ID)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Quotations[0].Created)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Quotations)
+                {
+                    <tr>
+                        <td><a asp-area="Model" asp-page="./Order" asp-route-id="@item.ID">@Html.DisplayFor(modelItem => item.ID)</a></td>
+                        <td>@Html.DisplayFor(modelItem => item.Created)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
