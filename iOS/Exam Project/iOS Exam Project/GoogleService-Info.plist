@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>177275317417-d2pog9r064ei1ed4l26vv3gpspd9c6as.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.177275317417-d2pog9r064ei1ed4l26vv3gpspd9c6as</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDAaSJN8RRtefwu4EaotKXhfOx302vYboc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>177275317417</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>net.ahlforn.iOS-Exam-Project</string>
+	<key>PROJECT_ID</key>
+	<string>iosexam</string>
+	<key>STORAGE_BUCKET</key>
+	<string>iosexam.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:177275317417:ios:4810d98a0b0bed57</string>
+	<key>DATABASE_URL</key>
+	<string>https://iosexam.firebaseio.com</string>
+</dict>
+</plist>
