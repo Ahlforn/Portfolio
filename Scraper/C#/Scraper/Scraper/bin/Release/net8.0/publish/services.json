@@ -1,0 +1,13 @@
+{
+  "services": [
+    {
+      "type": "Imgur",
+      "concurrentDownloads": 10,
+      "destination": "C:\\Users\\hirom\\Pictures\\Scraper\\images\\imgur",
+      "clientId": "e7884d8510fb09d",
+      "tags": [ "landscape" ],
+      "pages": 3,
+      "API_URL": "https://api.imgur.com/3/gallery/t/{{tagName}}/{{sort}}/{{window}}/{{page}}"
+    }
+  ]
+}

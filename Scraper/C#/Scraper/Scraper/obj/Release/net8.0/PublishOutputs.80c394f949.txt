@@ -1,0 +1,16 @@
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Scraper.exe
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Dockerfile
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\services.json
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\settings.json
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Scraper.dll
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Scraper.deps.json
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Scraper.runtimeconfig.json
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Scraper.pdb
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Microsoft.Extensions.Configuration.dll
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\hirom\Dropbox\Development\Portfolio v2\Scraper\C#\Scraper\Scraper\bin\Release\net8.0\publish\Microsoft.Extensions.Primitives.dll
