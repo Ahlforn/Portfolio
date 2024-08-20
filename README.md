@@ -1,1 +1,4 @@
 # Portfolio
+Welcome to the portfolio of Anders Hofmeister Brønden
+
+In this portfolio I have chosen to showcase a pet project of my own. Since the project is still a work in progress, I will add the modules as they are done. In short, the project is about making a filter that determines whether a picture meets your preferences or not. To do this, a dataset needs to be gathered in order to train an algorithm via machine learning. The first module will be a scraper module, to gather images from image services on the internet according to criteria defined in the configuration. Second module will handle annotating the image data with a score of 1-5 and packaging it for download from the server. Third module will be a client that download the packages and train an algorithm on the dataset. Fourth module is a filter module, that will filter the images on the server, so you can sit back and relax while viewing what will hopefully be your favorite images.
